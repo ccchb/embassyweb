@@ -2,4 +2,4 @@
 *.swp
 *.swo
 local_settings.py
-
+database.sqlite3
