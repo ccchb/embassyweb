@@ -1,3 +1,4 @@
+import os
 # Django settings for embassyweb project.
 
 DEBUG = True
@@ -15,6 +16,9 @@ DATABASES = {
         'NAME': 'database.sqlite3',
     }
 }
+
+# path to root of the GIT repository (this file is embassyweb/settings.py)
+DEPLOY_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -102,6 +106,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '%s/templates' % DEPLOY_PATH,
 )
 
 INSTALLED_APPS = (
