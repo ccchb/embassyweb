@@ -1,8 +1,8 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from blog.models import Post
 
 def index(request):
 	posts = Post.objects.all()
 
-	return render_to_response("index.html", {"posts": posts})
+	return render(request, "index.html", {"posts": posts})
 

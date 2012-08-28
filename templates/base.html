@@ -28,7 +28,11 @@
 		<footer>
 			<div>
 				<h3>Raumstatus</h3>
+				{% if raumstatus.open %}
+				Der Raum ist offen.
+				{% else %}
 				Der Raum ist zu.
+				{% endif %}
 			</div>
 
 			<div>
