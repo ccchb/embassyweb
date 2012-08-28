@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load tz %}
+{% load markup %}
+
+{% block title %}INDEX{% endblock %}
+
+{% block content %}
+<article>
+	In der Embassy of Nerdistan bieten wir heimatlosen Hackern und Nerds
+	Asyl, einen Ort zum Basteln, Löten, Hacken, Abhängen und Schnacken.
+	Im Gebäude der AUCOOP (Weberstr. 18) findet ihr uns abends und am
+	Wochenende im 2. Stock.
+</article>
+
+{% for post in posts %}
+<article>
+	<header>
+		<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+		</h2>
+		<date datetime="{{ post.created|utc|date:"Y-m-d H:i:s\Z" }}">
+		{{ post.created|localtime|date:"l, j. F Y, H:i \U\h\r e" }}
+		</date>
+	</header>
+	{{ post.text|markdown }}
+</article>
+{% endfor %}
+{% endblock %}
+
