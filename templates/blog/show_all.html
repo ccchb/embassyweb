@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Alle Blogeinträge{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+<article>
+	<header>
+		{% include "blog/post_header.html" with post=post only %}
+	</header>
+	{% include "blog/post_body.html" with post=post only %}
+</article>
+{% endfor %}
+{% endblock %}

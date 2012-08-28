@@ -1,0 +1,6 @@
+{# Generiert den Header des Posts post #}
+{% load tz %}
+<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+<date datetime="{{ post.created|utc|date:"Y-m-d H:i:s\Z" }}">
+	{{ post.created|localtime|date:"l, j. F Y, H:i \U\h\r e" }}</date>
+
