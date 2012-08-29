@@ -6,6 +6,12 @@
 			&ndash; Embassy of Nerdistan</title>
 		<link rel="stylesheet" type="text/css"
 			href="/static/main.css">
+		<link rel="alternative" type="application/atom+xml"
+			href="{% url feed-atom %}"
+			title="Alle Blogeinträge (Atom)">
+		<link rel="alternative" type="application/rss+xml"
+			href="{% url feed-rss %}"
+			title="Alle Blogeinträge (RSS)">
 	</head>
 	<body>
 		<header>
@@ -49,7 +55,12 @@
 				<h3>Unwichtiger Krams</h3>
 				<ul>
 					<li><a href="">Impressum</a></li>
-					<li><a href="">Admin</a></li>
+					<li><a href="{% url admin:index %}">
+							Admin</a></li>
+					<li><a href="{% url feed-atom %}">
+							Atom-Feed</a></li>
+					<li><a href="{% url feed-rss %}">
+							RSS-Feed</a></li>
 				</ul>
 			</div>
 		</footer>
