@@ -7,12 +7,12 @@ from django.utils.feedgenerator import Rss201rev2Feed, Atom1Feed
 
 def list_all(request):
 	"""Lists all Posts"""
-	posts = Post.objects.all()
+	posts = Post.objects.order_by('-updated')
 	return render(request, "blog/list_all.html", {"posts": posts})
 
 def show_all(request):
 	"""Shows all Posts"""
-	posts = Post.objects.all()
+	posts = Post.objects.order_by('-updated')
 	return render(request, "blog/show_all.html", {"posts": posts})
 
 def show_one(request, slug):
