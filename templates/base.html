@@ -32,38 +32,7 @@
 			{% endblock %}
 		</div>
 		<footer>
-			<div>
-				<h3>Raumstatus</h3>
-				{% if raumstatus.open %}
-				Der Raum ist offen.
-				{% else %}
-				Der Raum ist zu.
-				{% endif %}
-			</div>
-
-			<div>
-				<h3>Twitter</h3>
-				<p>Im Gebäude der AUCOOP (Weberstr. 18) findet
-					ihr uns abends und am Wochenende im
-					2. Stock.</p>
-				<p>Im Gebäude der AUCOOP (Weberstr. 18) findet
-					ihr uns abends und am Wochenende im
-					2. Stock.</p>
-			</div>
-
-			<div>
-				<h3>Unwichtiger Krams</h3>
-				<ul>
-					<li><a href="https://ccchb.de/wiki/Impressum">
-							Impressum</a></li>
-					<li><a href="{% url admin:index %}">
-							Admin</a></li>
-					<li><a href="{% url feed-atom %}">
-							Atom-Feed</a></li>
-					<li><a href="{% url feed-rss %}">
-							RSS-Feed</a></li>
-				</ul>
-			</div>
+			{% include "footer.html" %}
 		</footer>
 		<div id="eof"></div>
 	</body>
