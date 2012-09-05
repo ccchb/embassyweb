@@ -177,14 +177,13 @@ body > header h1 {
 }
 
 body > header .nav a {
-	border-left: 1px dashed black;
 	font-size: 1.2em;
-	text-decoration: none;
-/*	color: #00f !important;*/
 }
 
 body > footer > * {
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
 }
+
+
 
