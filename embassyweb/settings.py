@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 # Django settings for embassyweb project.
 
 DEBUG = True
@@ -19,6 +20,8 @@ DATABASES = {
 
 # path to root of the GIT repository (this file is embassyweb/settings.py)
 DEPLOY_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+DOORSTATE_TIMEOUT = timedelta(minutes=10)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -106,7 +109,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.core.context_processors.static",
 	"django.core.context_processors.tz",
 	"django.contrib.messages.context_processors.messages",
-	"embassyweb.context_processors.raumstatus",
+	"roomstatus.context_processors.roomstatus",
 )
 
 ROOT_URLCONF = 'embassyweb.urls'
@@ -136,6 +139,7 @@ INSTALLED_APPS = (
 	'django.contrib.markup',
 
 	'blog',
+	'roomstatus',
 )
 
 # A sample logging configuration. The only tangible logging

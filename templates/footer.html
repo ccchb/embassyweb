@@ -1,10 +1,14 @@
 <div>
 	<h2>Raumstatus</h2>
-	{% if raumstatus.open %}
-	Der Raum ist offen.
-	{% else %}
-	Der Raum ist zu.
-	{% endif %}
+	<p>
+		{% if roomstatus.door == None %}
+		Der Raumstatus ist mir unbekannt.
+		{% elif roomstatus.door %}
+		Der Raum ist im Moment offen.
+		{% else %}
+		Der Raum ist im Moment zu.
+		{% endif %}
+	</p>
 </div>
 
 <div>
