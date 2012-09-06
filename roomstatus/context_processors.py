@@ -1,17 +1,11 @@
-from django.utils import timezone
-from django.conf import settings
-from models import DoorState
+from views import getCurrentDoorState
 
 def getDoorState():
-	try:
-		lastState = DoorState.objects.order_by('-end')[0]
-	except IndexError:
+	state = getCurrentDoorState()
+	if state:
+		return state.isOpen
+	else:
 		return None
-
-	if timezone.now() - lastState.end > settings.DOORSTATE_TIMEOUT:
-		return None
-
-	return lastState.state
 
 def roomstatus(request):
 	res = {

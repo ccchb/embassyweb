@@ -15,6 +15,9 @@ urlpatterns = patterns('',
 	url(r'^b/feed.atom$', PostsFeedAtom(), name="feed-atom"),
 	url(r'^b/feed.rss$', PostsFeedRss(), name="feed-rss"),
 
+	# roomstatus
+	url(r'^status/door/set$', 'roomstatus.views.setDoorState'),
+
 	# builtin django admin
 	url(r'^admin/', include(admin.site.urls)),
 )
