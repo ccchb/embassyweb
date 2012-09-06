@@ -23,9 +23,8 @@
 				Embassy of Nerdistan
 			</h1>
 			<ul class="nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/about/">Über</a></li>
-				<li><a href="/images/">Bilder</a></li>
+				<li><a href="{% url embassyweb.views.index %}">Home</a></li>
+				<li><a href="{% url blog.views.show_one "about" %}">Über</a></li>
 			</ul>
 		</header>
 		<div id="content">
