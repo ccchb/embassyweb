@@ -1,5 +1,7 @@
 *.pyc
 *.swp
 *.swo
+*.bak
 local_settings.py
 database.sqlite3
+.sass-cache/

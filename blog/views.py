@@ -5,14 +5,17 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed, Atom1Feed
 
+def latest_public():
+	return Post.objects.filter(public=True).order_by('-updated')
+
 def list_all(request):
 	"""Lists all Posts"""
-	posts = Post.objects.order_by('-updated')
+	posts = latest_public()
 	return render(request, "blog/list_all.html", {"posts": posts})
 
 def show_all(request):
 	"""Shows all Posts"""
-	posts = Post.objects.order_by('-updated')
+	posts = latest_public()
 	return render(request, "blog/show_all.html", {"posts": posts})
 
 def show_one(request, slug):
@@ -30,7 +33,7 @@ class PostsFeedAtom(Feed):
 	description_template = "blog/feed_item.html"
 
 	def items(self):
-		return Post.objects.all()
+		return latest_public()
 
 	def item_title(self, item):
 		return item.title

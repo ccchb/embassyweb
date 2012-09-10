@@ -3,11 +3,14 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<article>
+<article class="blogpost">
 	<header>
 		{% include "blog/post_header.html" with post=post only %}
 	</header>
 	{% include "blog/post_body.html" with post=post only %}
+	<footer>
+		{% include "blog/post_footer.html" with post=post only %}
+	</footer>
 </article>
 {% endblock %}
 

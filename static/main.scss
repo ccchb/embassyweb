@@ -1,0 +1,279 @@
+/* HTML5 backwards compatibility */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+/*
+		 ____       _          _  __ _   
+		/ ___|  ___| |__  _ __(_)/ _| |_ 
+		\___ \ / __| '_ \| '__| | |_| __|
+		 ___) | (__| | | | |  | |  _| |_ 
+		|____/ \___|_| |_|_|  |_|_|  \__|
+		                                 
+*/
+
+$line-height: 1.4em;
+
+@mixin font-sans {
+	/* DejaVu Sans für die Nutzer freier Software,
+	 * Verdana für die armen Windows- und MacOSX-User,
+	 * sans-serif als Fallback für Untote und Zeitreisende. */
+	font-family: DejaVu Sans, Verdana, sans-serif;
+	line-height: $line-height;
+}
+
+@mixin font-monospace {
+	/* DejaVu Sans Mono für Nutzer freier Software,
+	 * Monaco für MacOSX-User. (Die ist übrigens hübsch!)
+	 * Windows-User haben zu 35% DejaVu installiert; der Rest
+	 * verfügt einfach über keine für die Darstellung von Code
+	 * geeignete Schrift. Wahrscheinlich sehen die dann Lucida
+	 * Typewriter oder etwas ähnlich hässliches. */
+	font-family: DejaVu Sans Mono, Monaco, monospace;
+	line-height: 1em;
+}
+
+
+/*
+		 _____          _                
+		|  ___|_ _ _ __| |__   ___ _ __  
+		| |_ / _` | '__| '_ \ / _ \ '_ \ 
+		|  _| (_| | |  | |_) |  __/ | | |
+		|_|  \__,_|_|  |_.__/ \___|_| |_|
+		                                 
+*/
+
+$hue: 200;
+$color: hsl($hue, 100%, 50%);
+$color-light: hsl($hue, 35%, 80%);
+$color-bg: hsl($hue, 30%, 95%);
+
+
+/*
+		 _____ _                           _       
+		| ____| | ___ _ __ ___   ___ _ __ | |_ ___ 
+		|  _| | |/ _ \ '_ ` _ \ / _ \ '_ \| __/ _ \
+		| |___| |  __/ | | | | |  __/ | | | ||  __/
+		|_____|_|\___|_| |_| |_|\___|_| |_|\__\___|
+		                                           
+*/
+
+a {
+	text-decoration: none;
+	color: $color;
+	
+	&:visited {
+		color: desaturate($color, 100);
+	}
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+code {
+	@include font-monospace;
+}
+
+body {
+	@include font-sans;
+	
+	min-width: 55em;
+	max-width: 80em;
+	margin: 0 auto;
+	
+	padding: 1em;
+	
+	> #content {
+		float: left;
+		width: 70%;
+	}
+	> footer {
+		float: right;
+		width: 30%;
+	}
+}
+
+body > header {
+	height: 8em;
+	position: relative;
+	margin-bottom: 1em;
+	
+	outline: 1px solid $color;
+	border-bottom: 0.4em solid $color;
+
+	.logo {
+		display: block;
+		overflow: hidden;
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		font-size: 8em;
+		
+		img {
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	h1 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		
+		font-size: 2.7em;
+		font-weight: normal;
+		line-height: 1.3em;
+		text-align: center;
+	}
+
+	.nav {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		
+		height: 4em;
+		line-height: 4em;
+		
+		li {
+			display: block;
+			float: left;
+		}
+
+		a {
+			display: block;
+			padding: 0 1.2em;
+			
+			font-size: 1.2em;
+			
+			color: $color;
+
+			&:hover {
+				background-color: lighten($color, 40);
+			}
+		}
+	}
+}
+
+body > footer {
+	h1 {
+		font-size: 1.3em;
+		margin-bottom: 0.3em;
+	}
+
+	> * {
+		margin-left: 0.5em;
+		margin-bottom: 1em;
+	}
+	
+	.raumstatus {
+		padding: 0.5em;
+		outline: 1px solid $color-light;
+		background-color: $color-bg;
+		
+		p {
+			margin: 0;
+		}
+	}
+	
+	nav h2 {
+		display: none;
+	}
+}
+
+#content {
+	p {
+		text-align: justify;
+	}
+	
+	pre {
+		margin-left: 1em;
+		padding-left: 1em;
+		border-left: 0.4em solid $color-light;
+	}
+
+	> * {
+		margin-right: 0.5em;
+		margin-bottom: 2em;
+	}
+	
+	.intro {
+		padding: 0.5em;
+		outline: 1px solid $color-light;
+		background-color: $color-bg;
+		
+		header {
+			margin-bottom: 0.3em;
+			
+			h1 {
+				font-size: 1.5em;
+				line-height: $line-height;
+			}
+		}
+	}
+	
+	.blogteaser {
+		header {
+			margin-bottom: 0.3em;
+			border-bottom: 1px dotted $color-light;
+			
+			h1 {
+				font-size: 1.3em;
+				line-height: $line-height;
+				font-weight: bold;
+			}
+			
+			date {
+				float: right;
+			}
+		}
+
+		.readfull {
+			display: block;
+			text-align: right;
+		}
+	}
+
+	.blogpost {
+		h1 {
+			font-weight: bold;
+			margin: 1em 0 1em;
+		}
+		h2, h3, h4, h5 {
+			margin: 2em 0 1em;
+			font-weight: bold;
+		}
+		h1 { font-size: 1.80em; line-height: $line-height; }
+		h2 { font-size: 1.50em; line-height: $line-height; }
+		h3 { font-size: 1.30em; line-height: $line-height; }
+		h4 { font-size: 1.15em; line-height: $line-height; }
+		h5 { font-size: 1.00em; line-height: $line-height; }
+		
+		header {
+			margin-bottom: 2em;
+			
+			date {
+				display: block;
+				text-align: right;
+			}
+		}
+		
+		footer {
+			margin-top: 2em;
+			
+			date {
+				display: block;
+				text-align: right;
+			}
+		}
+	}
+}

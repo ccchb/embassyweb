@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from blog.models import Post
+from blog.views import latest_public
 
 def index(request):
-	posts = Post.objects.order_by('-created')
+	posts = latest_public()
 
 	return render(request, "index.html", {"posts": posts})
 

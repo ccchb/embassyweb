@@ -1,5 +1,5 @@
-<div>
-	<h2>Raumstatus</h2>
+<aside class="raumstatus">
+	<h1>Raumstatus</h1>
 	<p>
 		{% if roomstatus.door == None %}
 		Der Raumstatus ist mir unbekannt.
@@ -9,29 +9,39 @@
 		Der Raum ist im Moment zu.
 		{% endif %}
 	</p>
-</div>
+</aside>
 {% comment %}
-<div>
-	<h2>Twitter</h2>
+<aside>
+	<h1>Twitter</h1>
 	<p>Im Gebäude der AUCOOP (Weberstr. 18) findet
 		ihr uns abends und am Wochenende im
 		2. Stock.</p>
 	<p>Im Gebäude der AUCOOP (Weberstr. 18) findet
 		ihr uns abends und am Wochenende im
 		2. Stock.</p>
-</div>
+</aside>
 {% endcomment %}
-<div>
-	<h2>Zweitnavigation</h2>
+<nav>
+	<h1>Navigation</h1>
 	<ul>
-		<li><a href="https://ccchb.de/wiki/Impressum">
-				Impressum</a></li>
-		<li><a href="{% url admin:index %}">
-				Admin</a></li>
+		<li><a href="{% url embassyweb.views.index %}">
+				Home</a></li>
+		<li><a href='{% url blog.views.show_one "about" %}'>
+				Über</a></li>
+	</ul>
+	<h2>Feeds</h2>
+	<ul>
 		<li><a href="{% url feed-atom %}">
 				Atom-Feed</a></li>
 		<li><a href="{% url feed-rss %}">
 				RSS-Feed</a></li>
 	</ul>
-</div>
+	<h2>Metakrams</h2>
+	<ul>
+		<li><a href="https://ccchb.de/wiki/Impressum">
+				Impressum</a></li>
+		<li><a href="{% url admin:index %}">
+				Admin</a></li>
+	</ul>
+</nav>
 

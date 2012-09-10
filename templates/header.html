@@ -1,0 +1,8 @@
+<h1>Embassy of Nerdistan</h1>
+<a class="logo" href="{% url embassyweb.views.index %}">
+	<img src="/static/Embassy.png">
+</a>
+<ul class="nav">
+	<li><a href="{% url embassyweb.views.index %}">Home</a></li>
+	<li><a href='{% url blog.views.show_one "about" %}'>Über</a></li>
+</ul>

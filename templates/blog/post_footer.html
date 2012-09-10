@@ -1,0 +1,6 @@
+{# Generiert den Footer des Posts post #}
+{% load tz %}
+<date datetime="{{ post.created|utc|date:"Y-m-d H:i:s\Z" }}">Erstellt:
+	{{ post.created|localtime|date:"l, j. F Y, H:i \U\h\r e" }}.</date>
+<date datetime="{{ post.updated|utc|date:"Y-m-d H:i:s\Z" }}">Zuletzt geändert:
+	{{ post.updated|localtime|date:"l, j. F Y, H:i \U\h\r e" }}.</date>
