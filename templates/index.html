@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
+<section class="intro">
+	<h1>Basteln, Hacken, Schnacken</h1>
 	In der Embassy of Nerdistan bieten wir heimatlosen Hackern und Nerds
 	Asyl, einen Ort zum Basteln, Löten, Hacken, Abhängen und Schnacken.
 	Im Gebäude der AUCOOP (Weberstr. 18) findet ihr uns abends und am
@@ -9,11 +10,7 @@
 </section>
 
 {% for post in posts %}
-<article>
-	<header>
-		{% include "blog/post_header.html" with post=post only %}
-	</header>
-	{% include "blog/post_body.html" with post=post only %}
-</article>
+{% include "blog/post_teaser.html" with post=post only %}
 {% endfor %}
+
 {% endblock %}

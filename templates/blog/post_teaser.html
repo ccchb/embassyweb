@@ -1,0 +1,13 @@
+{% load tz markup %}
+<section class="blogteaser">
+<header>
+	<h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+	<date datetime="{{ post.created|utc|date:"Y-m-d H:i:s\Z" }}">
+        		{{ post.created|localtime|date:"d.m.Y" }}</date>
+</header>
+
+{{ post.text|markdown:"safe"|truncatewords_html:75 }}
+
+<a class="readfull" href="{{ post.get_absolute_url }}">
+	Kompletten Beitrag lesen...</a>
+</section>
