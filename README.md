@@ -19,9 +19,17 @@ Clone repo:
 
 	embassy:~$ git clone git://github.com/pyropeter/embassyweb.git
 
-Create virtualenv for django 1.4:
+a) On Ubuntu 10.04 virtualenv is too old. Do this and skip the next step:
+
+	embassy:~$ git clone git://github.com/pypa/virtualenv.git
+	embassy:~$ python virtualenv/virtualenv.py django.env
+
+b) Create virtualenv for django 1.4:
 
 	embassy:~$ virtualenv django.env
+
+Activate the virtualenv and install requirements:
+
 	embassy:~$ . django.env/bin/activate
 	(django.env)embassy:~$ pip install -r embassyweb/requirements.txt
 
