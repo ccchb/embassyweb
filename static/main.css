@@ -30,9 +30,9 @@ footer, header, hgroup, menu, nav, section {
 */
 a {
   text-decoration: none;
-  color: #00aaff; }
+  color: #4e90cd; }
   a:visited {
-    color: gray; }
+    color: #8e8e8e; }
 
 h1, h2, h3, h4, h5 {
   margin: 0;
@@ -70,8 +70,8 @@ body > header {
   height: 8em;
   position: relative;
   margin-bottom: 1em;
-  outline: 1px solid #00aaff;
-  border-bottom: 0.4em solid #00aaff; }
+  outline: 1px solid #4e90cd;
+  border-bottom: 0.4em solid #4e90cd; }
   body > header .logo {
     display: block;
     overflow: hidden;
@@ -108,9 +108,9 @@ body > header {
       display: block;
       padding: 0 1.2em;
       font-size: 1.2em;
-      color: #00aaff; }
+      color: #4e90cd; }
       body > header .nav a:hover {
-        background-color: #cceeff; }
+        background-color: #edf4fa; }
 
 body > footer h1 {
   font-size: 1.3em;
@@ -120,8 +120,8 @@ body > footer > * {
   margin-bottom: 1em; }
 body > footer .raumstatus {
   padding: 0.5em;
-  outline: 1px solid #bad2de;
-  background-color: #eef4f6; }
+  outline: 1px solid #bacdde;
+  background-color: #eef2f6; }
   body > footer .raumstatus p {
     margin: 0; }
 body > footer nav h2 {
@@ -132,14 +132,14 @@ body > footer nav h2 {
 #content pre {
   margin-left: 1em;
   padding-left: 1em;
-  border-left: 0.4em solid #bad2de; }
+  border-left: 0.4em solid #bacdde; }
 #content > * {
   margin-right: 0.5em;
   margin-bottom: 2em; }
 #content .intro {
   padding: 0.5em;
-  outline: 1px solid #bad2de;
-  background-color: #eef4f6; }
+  outline: 1px solid #bacdde;
+  background-color: #eef2f6; }
   #content .intro header {
     margin-bottom: 0.3em; }
     #content .intro header h1 {
@@ -147,7 +147,7 @@ body > footer nav h2 {
       line-height: 1.4em; }
 #content .blogteaser header {
   margin-bottom: 0.3em;
-  border-bottom: 1px dotted #bad2de; }
+  border-bottom: 1px dotted #bacdde; }
   #content .blogteaser header h1 {
     font-size: 1.3em;
     line-height: 1.4em;
