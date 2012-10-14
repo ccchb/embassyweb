@@ -6,7 +6,7 @@ from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed, Atom1Feed
 
 def latest_public():
-	return Post.objects.filter(public=True).order_by('-updated')
+	return Post.objects.filter(public=True).order_by('-created')
 
 def list_all(request):
 	"""Lists all Posts"""
