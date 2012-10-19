@@ -7,6 +7,7 @@ from blog.views import PostsFeedRss, PostsFeedAtom
 
 urlpatterns = patterns('',
 	url(r'^$', 'embassyweb.views.index'),
+	url(r'^favicon.ico$', 'embassyweb.views.favicon'),
 
 	# blog
 	url(r'^b/$', 'blog.views.list_all'),
