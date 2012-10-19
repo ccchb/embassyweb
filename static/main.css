@@ -55,7 +55,7 @@ body {
    * sans-serif als Fallback für Untote und Zeitreisende. */
   font-family: DejaVu Sans, Verdana, sans-serif;
   line-height: 1.4em;
-  min-width: 55em;
+  min-width: 42em;
   max-width: 80em;
   margin: 0 auto;
   padding: 1em; }
