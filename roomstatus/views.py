@@ -96,7 +96,7 @@ def spaceapi(request):
 			True: 'Open for public',
 			False: 'Closed',
 			}[isOpen]
-		lastchange = time.mktime(currentDoorstate.start)
+		lastchange = time.mktime(currentDoorstate.start.timetuple())
 
 	data = {
 		'api': '0.12',
