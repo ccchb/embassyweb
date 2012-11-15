@@ -12,6 +12,9 @@
 		<link rel="alternative" type="application/rss+xml"
 			href="{% url feed-rss %}"
 			title="Alle Blogeinträge (RSS)">
+		<link rel="space-api" type="application/json"
+			href="{% url roomstatus.views.spaceapi %}"
+			title="HackerSpace Status API">
 	</head>
 	<body>
 		<header>
