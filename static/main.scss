@@ -50,6 +50,8 @@ $color: #4e90cd;
 $color-light: hsl($hue, 35%, 80%);
 $color-bg: hsl($hue, 30%, 95%);
 
+$error: #ff0000;
+$error-bg: #ffbebe;
 
 /*
 		 _____ _                           _       
@@ -207,10 +209,8 @@ body > footer {
 		margin-bottom: 2em;
 	}
 	
-	.intro {
+	.intro, .error {
 		padding: 0.5em;
-		outline: 1px solid $color-light;
-		background-color: $color-bg;
 		
 		header {
 			margin-bottom: 0.3em;
@@ -220,6 +220,16 @@ body > footer {
 				line-height: $line-height;
 			}
 		}
+	}
+
+	.error {
+		outline: 1px solid $error;
+		background-color: $error-bg;
+	}
+
+	.intro {
+		outline: 1px solid $color-light;
+		background-color: $color-bg;
 	}
 	
 	.blogteaser {

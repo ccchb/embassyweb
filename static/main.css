@@ -136,15 +136,19 @@ body > footer nav h2 {
 #content > * {
   margin-right: 0.5em;
   margin-bottom: 2em; }
-#content .intro {
-  padding: 0.5em;
-  outline: 1px solid #bacdde;
-  background-color: #eef2f6; }
-  #content .intro header {
+#content .intro, #content .error {
+  padding: 0.5em; }
+  #content .intro header, #content .error header {
     margin-bottom: 0.3em; }
-    #content .intro header h1 {
+    #content .intro header h1, #content .error header h1 {
       font-size: 1.5em;
       line-height: 1.4em; }
+#content .error {
+  outline: 1px solid red;
+  background-color: #ffbebe; }
+#content .intro {
+  outline: 1px solid #bacdde;
+  background-color: #eef2f6; }
 #content .blogteaser header {
   margin-bottom: 0.3em;
   border-bottom: 1px dotted #bacdde; }
