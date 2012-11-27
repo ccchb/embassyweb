@@ -191,6 +191,14 @@ body > footer {
 	nav h2 {
 		display: none;
 	}
+
+	.banner a {
+		display: block;
+
+		img {
+			width: 100%;
+		}
+	}
 }
 
 #content {

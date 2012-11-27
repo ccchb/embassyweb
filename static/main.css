@@ -126,6 +126,10 @@ body > footer .raumstatus {
     margin: 0; }
 body > footer nav h2 {
   display: none; }
+body > footer .banner a {
+  display: block; }
+  body > footer .banner a img {
+    width: 100%; }
 
 #content p {
   text-align: justify; }
