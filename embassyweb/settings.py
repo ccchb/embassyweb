@@ -11,6 +11,11 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_USER = 'embassy'
+SERVER_EMAIL = 'django@embassy.ccchb.de'
+
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',
