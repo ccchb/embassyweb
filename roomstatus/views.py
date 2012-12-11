@@ -6,9 +6,23 @@ from django.core.urlresolvers import reverse
 from django.contrib.sites.models import Site
 from django.utils import timezone
 from django.conf import settings
-from models import DoorState
+from models import *
 import json
 import time
+
+def getCurrentLeaseState(now=None):
+	try:
+		lastState = LeaseState.objects.order_by('-start')[0]
+	except IndexError:
+		return None
+
+	if not now:
+		now = timezone.now()
+
+	if now - lastState.end > settings.DOORSTATE_TIMEOUT:
+		return None
+
+	return lastState
 
 def getCurrentDoorState(now=None):
 	try:
@@ -23,6 +37,35 @@ def getCurrentDoorState(now=None):
 		return None
 
 	return lastState
+
+@csrf_exempt
+@require_POST
+def setLeaseState(request):
+	if request.POST.get("secret") != settings.DOORSTATE_SECRET:
+		return HttpResponseForbidden("wrong or missing secret")
+
+	try:
+		leases = int(request.POST.get("leases"))
+	except KeyError:
+		return HttpResponseBadRequest("leases must be an int")
+
+	if leases < 0:
+		return HttpResponseBadRequest("leases must be > 0")
+
+	now = timezone.now()
+	lastState = getCurrentLeaseState(now)
+	if lastState:
+		lastState.end = now
+		lastState.save()
+
+	if not lastState or lastState.leases != leases:
+		newState = LeaseState()
+		newState.start = now
+		newState.end = now
+		newState.leases = leases
+		newState.save()
+
+	return HttpResponse("thx4lot!", "text/plain")
 
 @csrf_exempt
 @require_POST
@@ -139,4 +182,36 @@ def spaceapi(request):
 	response['Access-Control-Allow-Origin'] = '*'
 	response['Cache-Control'] = 'no-cache'
 	return response
+
+def mateCalcLagerbestand(mateType):
+	try:
+		lastCount = mateType.matecount_set.latest('time')
+	except MateCount.DoesNotExist:
+		return -1
+	increments = mateType.mateincrement_set.filter(
+			time__gt=lastCount.time)
+	result = lastCount.count
+	for inc in increments:
+		result += inc.count
+	return result
+
+def mateCalcStatus():
+	types = {}
+	for mateType in MateType.objects.all():
+		lagerbestand = mateCalcLagerbestand(mateType)
+		types[mateType.name] = {
+				'homepage': mateType.homepage,
+				'fuellmenge': mateType.fuellmenge,
+				'koffeingehalt': mateType.koffeingehalt,
+				'lagerbestand': lagerbestand,
+		}
+	return types
+
+def mateJson(request):
+	types = mateCalcStatus()
+	data = {
+		'types': types,
+	}
+	return HttpResponse(json.dumps(data, ensure_ascii=False),
+			mimetype='application/json')
 

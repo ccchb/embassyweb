@@ -19,6 +19,7 @@ urlpatterns = patterns('',
 	# roomstatus
 	url(r'^status.json$', 'roomstatus.views.spaceapi'),
 	url(r'^status/door/set$', 'roomstatus.views.setDoorState'),
+	url(r'^status/leases/set$', 'roomstatus.views.setLeaseState'),
 
 	# builtin django admin
 	url(r'^admin/', include(admin.site.urls)),
