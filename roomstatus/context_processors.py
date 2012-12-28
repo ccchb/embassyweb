@@ -17,7 +17,7 @@ def getLeaseState():
 def roomstatus(request):
 	res = {
 		"door": getDoorState(),
-		"leases": getLeases(),
+		"leases": getLeaseState(),
 	}
 	return {"roomstatus": res}
 
