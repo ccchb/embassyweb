@@ -9,6 +9,15 @@
 		{% else %}
 		Die Embassy ist geschlossen.
 		{% endif %}
+		<br>
+		{% if roomstatus.leases == None %}
+		Der Gerätezähler im Embassy-Netzwerk ist grade ausgefallen.
+		Wahrscheinlich ist das Embassy-Netzwerk auch ausgefallen.
+		Ganz bestimmt kümmert sich schon jemand um eine Lösung.
+		{% else %}
+		Im Embassy-Netzwerk sind zur Zeit ungefär
+		{{ roomstatus.leases }} Geräte angemeldet.
+		{% endif %}
 	</p>
 </aside>
 {% comment %}
