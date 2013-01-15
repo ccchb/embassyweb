@@ -184,7 +184,11 @@ def spaceapi(request):
 			'leases': devicecount,
 		},
 	}
-	response = HttpResponse(json.dumps(data, ensure_ascii=False),
+	response = HttpResponse(json.dumps(data,
+				ensure_ascii=False,
+				sort_keys=True,
+				indent=4,
+				separators=(',', ': ')),
 			mimetype='application/json')
 	response['Access-Control-Allow-Origin'] = '*'
 	response['Cache-Control'] = 'no-cache'
