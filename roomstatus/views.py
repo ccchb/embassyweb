@@ -45,12 +45,12 @@ def setLeaseState(request):
 		return HttpResponseForbidden("wrong or missing secret")
 
 	try:
-		leases = int(request.POST.get("leases"))
+		leases = int(request.POST.get("arp"))
 	except KeyError:
-		return HttpResponseBadRequest("leases must be an int")
+		return HttpResponseBadRequest("arp must be an int")
 
 	if leases < 0:
-		return HttpResponseBadRequest("leases must be > 0")
+		return HttpResponseBadRequest("arp must be > 0")
 
 	now = timezone.now()
 	lastState = getCurrentLeaseState(now)
