@@ -140,7 +140,7 @@ def spaceapi(request):
 	if currentDoorstate:
 		isOpen = currentDoorstate.isOpen
 		status = {
-			True: "About %i devices connected",
+			True: "About %i devices connected" % devicecount,
 			False: 'Closed',
 			}[isOpen]
 		lastchange = time.mktime(currentDoorstate.start.timetuple())
@@ -219,6 +219,10 @@ def mateJson(request):
 	data = {
 		'types': types,
 	}
-	return HttpResponse(json.dumps(data, ensure_ascii=False),
+	return HttpResponse(json.dumps(data,
+				ensure_ascii=False,
+				sort_keys=True,
+				indent=4,
+				separators=(',', ': ')),
 			mimetype='application/json')
 
