@@ -2,11 +2,12 @@
 	<h1>Raumstatus</h1>
 	<p>
 		{% if roomstatus.door == None %}
-		Der Raumstatus ist mir unbekannt.
+		Der Tuerstatus-Sensor ist grade mal wieder ausgefallen.
+		Dafür bitten wir ganz herzlich um Verständnis.
 		{% elif roomstatus.door %}
-		Der Raum ist geöffnet. Komm doch auch vorbei!
+		Die Embassy ist geöffnet. Komm doch auch vorbei!
 		{% else %}
-		Der Raum ist geschlossen.
+		Die Embassy ist geschlossen.
 		{% endif %}
 	</p>
 </aside>
