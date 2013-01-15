@@ -8,5 +8,5 @@ class LeaseStateAdmin(admin.ModelAdmin):
 	list_display = ("leases", "start", "end")
 
 admin.site.register(DoorState, DoorStateAdmin)
-admin.site.register(LeaseState, DoorStateAdmin)
+admin.site.register(LeaseState, LeaseStateAdmin)
 

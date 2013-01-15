@@ -2,14 +2,19 @@ import os
 from datetime import timedelta
 # Django settings for embassyweb project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	# ('Your Name', 'your_email@example.com'),
+	('PyroPeter', 'pyropeter@pyropeter.eu'),
 )
 
 MANAGERS = ADMINS
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_USER = 'embassy'
+SERVER_EMAIL = 'django@embassy.ccchb.de'
 
 DATABASES = {
 	'default': {
@@ -17,6 +22,8 @@ DATABASES = {
 		'NAME': 'database.sqlite3',
 	}
 }
+
+FORCE_SCRIPT_NAME=""
 
 # path to root of the GIT repository (this file is embassyweb/settings.py)
 DEPLOY_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
@@ -83,7 +90,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '000000000000000000000000000000000000000000000000000'
+SECRET_KEY = 'zohd8eeHilohgh3ohfiecoas5poo6og5'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
