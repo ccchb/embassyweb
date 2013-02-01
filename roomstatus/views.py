@@ -140,7 +140,7 @@ def spaceapi(request):
 	if currentDoorstate:
 		isOpen = currentDoorstate.isOpen
 		status = {
-			True: "About %i devices connected" % devicecount,
+			True: "Open, about %i devices connected" % devicecount,
 			False: 'Closed',
 			}[isOpen]
 		lastchange = time.mktime(currentDoorstate.start.timetuple())
