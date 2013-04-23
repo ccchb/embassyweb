@@ -67,7 +67,7 @@ a {
 	color: $color;
 	
 	&:visited {
-		color: desaturate($color, 100);
+		color: $color;
 	}
 }
 
