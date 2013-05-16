@@ -204,6 +204,10 @@ body > footer {
 #content {
 	p {
 		text-align: justify;
+
+		> img {
+			width: 100%;
+		}
 	}
 	
 	pre {
