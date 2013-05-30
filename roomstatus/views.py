@@ -9,6 +9,7 @@ from django.conf import settings
 from models import *
 import json
 import time
+import calendar
 
 def getCurrentLeaseState(now=None):
 	try:
@@ -143,7 +144,7 @@ def spaceapi(request):
 			True: "Open, about %i devices connected" % devicecount,
 			False: 'Closed',
 			}[isOpen]
-		lastchange = time.mktime(currentDoorstate.start.timetuple())
+		lastchange = calendar.timegm(currentDoorstate.start.timetuple())
 
 	data = {
 		'api': '0.12',
