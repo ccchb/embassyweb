@@ -132,18 +132,18 @@ def spaceapi(request):
 	# check door state
 	isOpen = False
 	status = 'Sensor is broken'
-	devicecount = -1
 	lastchange = 0
 	currentDoorstate = getCurrentDoorState()
 	currentLeasestate = getCurrentLeaseState()
-	if currentLeasestate:
-		devicecount = currentLeasestate.leases
 	if currentDoorstate:
 		isOpen = currentDoorstate.isOpen
-		status = {
-			True: "Open, about %i devices connected" % devicecount,
-			False: 'Closed',
-			}[isOpen]
+		if isOpen:
+			if currentLeasestate:
+				status = "Open, about %i devices connected" % currentLeasestate
+			else:
+				status = "Open"
+		else:
+			status = "Closed"
 		lastchange = calendar.timegm(currentDoorstate.start.timetuple())
 
 	data = {
@@ -182,7 +182,7 @@ def spaceapi(request):
 				'url': 'http://ccchb.de/CCCHB-Kalender.ics'},
 		],
 		'sensors': {
-			'leases': devicecount,
+			'leases': currentLeasestate,
 		},
 	}
 	response = HttpResponse(json.dumps(data,
