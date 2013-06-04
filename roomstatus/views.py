@@ -135,11 +135,12 @@ def spaceapi(request):
 	lastchange = 0
 	currentDoorstate = getCurrentDoorState()
 	currentLeasestate = getCurrentLeaseState()
+	leases = currentLeasestate.leases if currentLeasestate else None
 	if currentDoorstate:
 		isOpen = currentDoorstate.isOpen
 		if isOpen:
-			if currentLeasestate:
-				status = "Open, about %i devices connected" % currentLeasestate
+			if leases:
+				status = "Open, about %i devices connected" % leases
 			else:
 				status = "Open"
 		else:
@@ -182,7 +183,7 @@ def spaceapi(request):
 				'url': 'http://ccchb.de/CCCHB-Kalender.ics'},
 		],
 		'sensors': {
-			'leases': currentLeasestate,
+			'leases': leases,
 		},
 	}
 	response = HttpResponse(json.dumps(data,
