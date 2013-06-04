@@ -49,6 +49,8 @@ def setLeaseState(request):
 		leases = int(request.POST.get("arp"))
 	except KeyError:
 		return HttpResponseBadRequest("arp must be an int")
+	except TypeError:
+		return HttpResponseBadRequest("missing arp-argument")
 
 	if leases < 0:
 		return HttpResponseBadRequest("arp must be > 0")
