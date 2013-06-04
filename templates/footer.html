@@ -14,6 +14,9 @@
 		Der Gerätezähler im Embassy-Netzwerk ist grade ausgefallen.
 		Wahrscheinlich ist das Embassy-Netzwerk auch ausgefallen.
 		Ganz bestimmt kümmert sich schon jemand um eine Lösung.
+		{% elif roomstatus.leases == 1 %}
+		Im Embassy-Netzwerk ist zur Zeit ungefähr
+		ein Gerät angemeldet.
 		{% else %}
 		Im Embassy-Netzwerk sind zur Zeit ungefähr
 		{{ roomstatus.leases }} Geräte angemeldet.
