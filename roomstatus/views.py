@@ -169,7 +169,7 @@ def spaceapi(request):
 			'twitter': '@embassyof',
 			'email': 'vorstand..ccchb.de',
 			'irc': 'irc://chat.freenode.net/#embassyof',
-			'ml': 'ccc..lists.erleuchtet.org',
+			'ml': 'ccc@lists.erleuchtet.org',
 		},
 		'feeds': [
 			{
