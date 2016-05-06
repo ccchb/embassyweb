@@ -12,6 +12,9 @@
 			<p>Durch Absenden dieses Formulars meldest Du dich verbindlich für
 			das Geekend an und erklärst Dich bereit, den Eintrittspreis von 16€
 			zu zahlen.</p>
+			<p>Wenn du einen Schlafplatz benötigst, dann achte bitte darauf,
+			eine eMail-Adresse anzugeben und im Kommentarfeld kurz zu
+			schildern, ob du mithelfen willst oder eher nicht.</p>
 
 			<form action="/geekend" method="post">{% csrf_token %}
 				{{ formset.as_p}}
