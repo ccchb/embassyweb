@@ -21,6 +21,9 @@ urlpatterns = patterns('',
 	url(r'^status/door/set$', 'roomstatus.views.setDoorState'),
 	url(r'^status/leases/set$', 'roomstatus.views.setLeaseState'),
 
+        # geekend
+        url(r'^geekend$', 'geekend.views.signup'),
+
 	# builtin django admin
 	url(r'^admin/', include(admin.site.urls)),
 )

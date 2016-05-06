@@ -2,7 +2,7 @@ import os
 from datetime import timedelta
 # Django settings for embassyweb project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -148,6 +148,7 @@ INSTALLED_APPS = (
 
 	'blog',
 	'roomstatus',
+        'geekend',
 )
 
 # A sample logging configuration. The only tangible logging

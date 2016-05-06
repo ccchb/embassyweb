@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Anmeldung Geekend 2016{% endblock %}
+
+{% block content %}
+	{% if done %}
+		<p>Vielen Dank für die Anmeldung!</p>
+	{% else %}
+		{% if space_left > 0 %}
+			<p>Dies ist die Anmeldung für das CCCHB-Geekend 2016.</p>
+			<p>Es sind noch {{ space_left }} Plätze frei.</p>
+			<p>Durch Absenden dieses Formulars meldest Du dich verbindlich für
+			das Geekend an und erklärst Dich bereit, den Eintrittspreis von 16€
+			zu zahlen.</p>
+
+			<form action="/geekend" method="post">{% csrf_token %}
+				{{ formset.as_p}}
+				<input type="submit" value="Submit" />
+			</form>
+		{% else %}
+			<p>Du kommst zu spät!</p>
+			<p>Leider können wir keine weiteren Teilnehmer unterbringen.</p>
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
