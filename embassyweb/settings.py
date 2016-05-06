@@ -2,7 +2,7 @@ import os
 from datetime import timedelta
 # Django settings for embassyweb project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
